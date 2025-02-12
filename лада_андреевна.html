@@ -1,0 +1,146 @@
+
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лада Андреевна, вы просто котик!</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden; /* Скрыть переполнение */
+            position: relative; /* Для позиционирования изображений котиков */
+            background: linear-gradient(to bottom right, #ff7e9e, #ffb5a0); /* Цветной градиент фона */
+            animation: backgroundAnimation 10s infinite alternate; /* Анимация фона */
+        }
+
+        @keyframes backgroundAnimation {
+            0% { background: linear-gradient(to bottom right, #ff7e9e, #ffb5a0); }
+            50% { background: linear-gradient(to bottom right, #ffb5a0, #ff7e9e); }
+            100% { background: linear-gradient(to bottom right, #ff7e9e, #ffb5a0); }
+        }
+
+        h1 {
+            color: #2d1c1c; /* Цвет текста заголовка */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: textPulse 2s infinite; /* Анимация пульсации текста */
+        }
+
+        @keyframes textPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        img {
+            max-width: 400px;
+            margin: 20px 0;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.30);
+            opacity: 0; /* Начальная прозрачность */
+            animation: fadeIn 1s forwards; /* Анимация появления */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #ff4081;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.3s;
+            margin: 10px; /* Добавлено для отступа между кнопками */
+        }
+
+        button:hover {
+            background-color: #e91e63;
+            transform: scale(1.05);
+        }
+
+        #compliment, #smileMessage {
+            display: none;
+            font-size: 18px;
+            color: #333;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+            animation: fadeInText 0.5s ease-in-out; /* Анимация появления текста */
+        }
+
+        @keyframes fadeInText {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Стили для изображений котиков на фоне */
+        .cat-image {
+            position: absolute;
+            width: 150px; /* Ширина изображений котиков */
+            opacity: 0.7; /* Прозрачность изображений */
+            animation: floatCat 6s ease-in-out infinite; /* Анимация плавания котиков */
+        }
+
+        @keyframes floatCat {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0); }
+        }
+
+        .cat1 { top: 10%; left: 10%; }
+        .cat2 { top: 20%; right: 15%; }
+        .cat3 { bottom: 15%; left: 25%; }
+        .cat4 { bottom: 25%; right: 20%; }
+    </style>
+</head>
+<body>
+    <h1>Лада Андреевна, вы просто котик!</h1>
+    <img src="лада.jpg" alt="Пример изображения" style="animation-delay: 0.5s;">
+    
+    <button id="complimentButton"> * </button>
+    <p id="compliment">Вы самый приятный человек во всем KFC!</p>
+
+    <button id="smileButton">Улыбнитесь)</button>
+    <p id="smileMessage">Надеюсь, улыбнулись!</p>
+
+    <!-- Изображения котиков -->
+    <img src="кэт.jpg" alt="Котик" class="cat-image cat1" style="animation-delay: 1s;">
+    <img src="котл.jpg" alt="Котик" class="cat-image cat2" style="animation-delay: 1.5s;">
+    <img src="котл2.jpg" alt="Котик" class="cat-image cat3" style="animation-delay: 2s;">
+    <img src="567кот.jpg" alt="Котик" class="cat-image cat4" style="animation-delay: 2.5s;">
+
+    <script>
+        const complimentButton = document.getElementById('complimentButton');
+        const compliment = document.getElementById('compliment');
+        const smileButton = document.getElementById('smileButton');
+        const smileMessage = document.getElementById('smileMessage');
+
+        complimentButton.addEventListener('click', function() {
+            compliment.style.display = 'block';
+            complimentButton.style.display = 'none'; // Скрыть кнопку после нажатия
+        });
+
+        smileButton.addEventListener('click', function() {
+            smileMessage.style.display = 'block';
+            smileButton.style.display = 'none'; // Скрыть кнопку после нажатия
+        });
+    </script>
+</body>
+</html>
+
+
+
+
